@@ -37,20 +37,33 @@
           <li><a href="https://github.com/PRIDE-Toolsuite/pride-inspector/">View On 	<strong>GitHub</strong></a></li>
         </ul>
         </header>
-        <p>The <a href="https://github.com/PRIDE-Utilities/ms-data-core-api">ms-data-core-api</a> is a modular and open-source library aimed to develop computational proteomics tools. 
-           The API, written in Java, enables rapid tool creation by providing a robust, pluggable programming interface
-           and common data model. The data object model is based on controlled vocabularies/ontologies and captures the whole
-           range of data types included in common proteomics experimental workflows, going from spectra and identification
-           data to quantification results. The library contains readers of three of the most used Proteomics Standards
-           Initiative standard file formats (<a href="http://www.psidev.info/mzml_1_0_0%20">mzML</a>, <a href="http://www.psidev.info/mzidentml">mzIdentML</a> and <a href="http://www.psidev.info/mztab">mzTab</a>). 
-           In addition to mzML, it also supports the other most commonly used mass spectra formats: dta, ms2, mgf, pkl, apl
-           (text-based), mzXML and mzData (XML-based).</p>
+        <p>The GUI module of the PRIDE Inspector organizes itself in the form of several views, where each view focuses on a particular 
+           aspect of the data. There are currently six views:
+
+           <ul>
+             <li> Overview view – shows experimental metadata.</li>
+             <li> Protein view – shows protein identifications</li>
+             <li> Peptide view – shows peptides used to generate the protein identifications</li>
+             <li> Spectrum view – shows spectra and chromatograms</li>
+             <li> Quantification view – show quantitative data for both proteins and peptides</li>
+             <li> Summary charts view – provides data chars for assessing data quality</li>
+           </ul>
+
+           To enable maximum reusability, each view is implemented as an independent component using Java 
+           Swing [http://download.oracle.com/javase/tutorial/uiswing/]. This way, more views can be added easily in the future.
+           Inspector-mzgraph-browser [https://github.com/PRIDE-Toolsuite/inspector-mzgraph-browser], the component responsible for 
+           visualizing spectra and chromatograms, is released and available as self-contained Java library and distributed as part 
+           of the PRIDE Inspector. Both this component and the statistical charts in the ‘Summary Charts’ view, are implemented using
+           the <a href="http://www.jfree.org/jfreechart/">JFreeChart</a> API. Next to the previous six layers, a generic application
+           management framework maintains the context and information shared by the whole environment. It consists of features frequently 
+           required by medium or large Java Swing based applications, such as: lifecycle services for background tasks, in-memory 
+           caching, event bus, user property management and error handling. The framework is independent from the PRIDE Inspector and
+           therefore can be reused for other rich client applications.</p>
            
         <p>Related Documents:</p>
         <ul>
-            <li>Project <a href="https://github.com/PRIDE-Utilities/ms-data-core-api/issues">Issues</a></li>
-            <li>Project <a href="https://github.com/PRIDE-Utilities/ms-data-core-api/wiki">Wiki</a></li>
-            <li><a href="http://pride-utilities.github.io/ms-data-core-api/javaDoc/">JavaDoc</a></li>
+            <li>Project <a href="https://github.com/PRIDE-Toolsuite/pride-inspector/issues">Issues</a></li>
+            <li>Project <a href="https://github.com/PRIDE-Toolsuite/pride-inspector/wiki">Wiki</a></li>
         </ul>   
         <p>List of libraries and tools that use <strong>ms-data-core-api</strong></p>
         
